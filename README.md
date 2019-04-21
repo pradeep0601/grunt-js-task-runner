@@ -1,5 +1,5 @@
 # grunt-js-task-runner
-Sample application to get started with task runner grunt
+A sample application to get started with javascript task runner grunt
 
 ## What is Grunt??
 Grunt is a Javascript task runner. At its bare core it does file manipulation (mkdir, reads, write, copy), print messages and helper methods to organize and configure multiple tasks.
