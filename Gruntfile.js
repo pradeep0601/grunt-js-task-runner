@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = (grunt) => {
 
     // Configuration
@@ -13,11 +15,39 @@ module.exports = (grunt) => {
                 src: ['css/bootstrap.css', 'css/reset.css'],
                 dest: 'dist/styles.css'
             }
+        },
+
+        sass: {
+            options: {
+                implementation: sass,
+                sourceMap: true
+            },
+            build : {
+                files: [
+                    {
+                        src: 'css/sass/styles.scss',
+                        dest: 'css/sass/styles.css'
+                    }
+                ]
+            }
+        },
+
+        uglify: {
+            build: {
+                files: [{
+                    src: 'js/scripts.js',
+                    dest: 'dist/scripts.min.js'
+                }]
+            }
         }
     });
 
     // Load plugins
     grunt.loadNpmTasks('grunt-contrib-concat');
+
+    grunt.loadNpmTasks('grunt-sass');
+
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Register tasks
     grunt.registerTask('concat-js', ['concat:js']);
